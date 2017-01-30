@@ -7,6 +7,9 @@ require_once 'vendor/autoload.php';
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
 
+use Models\Database;
+new Database();
+
 WingCommander::init();
 Flight::view()->setTemplatePath("./app/Views");
 

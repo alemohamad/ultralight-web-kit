@@ -4,6 +4,7 @@ use Flight;
 use PHPMailer;
 use Valitron\Validator;
 use Joelvardy\Flash;
+use Models\Message;
 
 class SendMails {
 
@@ -51,6 +52,10 @@ class SendMails {
     }
     else {
       // Message sent!
+      if (getenv('DB_STATUS') != 'disabled') {
+        Message::create(['name' => $data['name'], 'message' => $data['message']]);
+      }
+
       Flight::redirect('/contacto/gracias');
     }
   }
