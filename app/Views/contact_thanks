@@ -1,0 +1,7 @@
+<h1 class="cover-heading">Contacto</h1>
+<p class="lead">Me pueden encontrar en Twitter.</p>
+<p class="lead">
+  <a href="https://twitter.com/{{ twitter_account }}" class="btn btn-lg btn-default">@{{ twitter_account }}</a>
+</p>
+<hr>
+<h2>Gracias por escribirnos.</h2>

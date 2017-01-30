@@ -1,5 +1,7 @@
 <?php
 
+if( !session_id() ) @session_start();
+
 require_once 'vendor/autoload.php';
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
