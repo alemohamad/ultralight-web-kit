@@ -1,0 +1,27 @@
+{
+  "name": "ultralight-web-kit",
+  "description": "Gulp file to convert Sass and compress JavaScript code.",
+  "author": "Ale Mohamad",
+  "private": true,
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "del": "^2.2.2",
+    "path": "^0.12.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -116,6 +116,42 @@ Todo esto no sería posible sin las siguientes librerías:
 * [Flash](https://github.com/joelvardy/flash)
 * [Eloquent ORM](https://github.com/illuminate/database)
 
+## Bonus track: Desarrollo Front-end
+
+Este proyecto está pensado para un desarrollo web, y para esto conviene tener en cuenta también el armado del front-end. En mi opinión es muy cómodo usar el lenguaje [Sass](http://sass-lang.com) para armar los estilos. Y también está bueno poder tener los estilos CSS y la lógica de JavaScript en un único archivo (menos llamadas al servidor), y si podemos minimizarlo, mejor.
+
+Para poder conseguir esto, armé una carpeta llamada `assets-dev`, en donde se encuentran paquetes de [Node.js](https://nodejs.org) y un script de [Gulp](http://gulpjs.com) para instalar y utilizar. También hay un script de [Bower](https://bower.io) para instalar librerías de CSS y JS (como ser [Bourbon](http://bourbon.io) y [jQuery](https://jquery.com)). En los archivos de Sass van a encontrar que les dejo una copia de [Reset CSS](http://meyerweb.com/eric/tools/css/reset/) y [Head.JS](http://headjs.com). Pueden removerlos si no quieren usarlos.
+
+Para utilizar estos scripts, tenemos que utilizar los siguientes comandos para instalar lo necesario:
+
+```
+$ npm install -g npm
+$ sudo gem install sass
+$ npm install -g bower
+$ npm install -g gulp-cli
+```
+
+Para instalar los paquetes necesarios, tenemos que ir a la carpeta `assets-dev` y usar los siguientes comandos:
+
+```
+$ npm install
+$ bower install
+```
+
+Luego para trabajar (también en la carpeta `assets-dev`) usamos el comando:
+
+```
+$ gulp
+```
+
+Es importante saber que si cancelamos el proceso, se va a dejar de escuchar para generar los archivos finales a usar en el proyecto.
+
+Quiero aclarar que esta es la forma y las herramientas que a mi me gustan. No están obligados a utilizarla.
+
+De hecho, si realizan desarrollo front-end de otra forma, lo mejor es eliminar la carpeta `assets-dev`, ya que en ese caso va a ser código basura.
+
+Una herramienta que también pueden usar es [Prepros](https://prepros.io), aunque hay muchas otras opciones para estas tareas. 😁
+
 ## Pasos para contribuir con el proyecto
 
 1. Hacé un fork del repo.

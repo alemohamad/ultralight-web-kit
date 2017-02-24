@@ -1,0 +1,29 @@
+{
+  "name": "ultralight-web-kit",
+  "description": "Web development libraries.",
+  "main": "gulpfile.js",
+  "authors": [
+    "Ale Mohamad"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ultralight",
+    "web",
+    "kit",
+    "website",
+    "skeleton"
+  ],
+  "homepage": "https://github.com/alemohamad/ultralight-web-kit",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "^4.3.3",
+    "jquery": "^3.1.1"
+  }
+}

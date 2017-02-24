@@ -13,13 +13,13 @@ class Contacto {
     $error_message = isset($flash['errors']['message']) ? $flash['errors']['message'][0] : "";
 
     Flight::render('contact', ['twitter_account' => getenv('TWITTER'), 'name' => $name, 'error_name' => $error_name, 'message' => $message, 'error_message' => $error_message], 'yield');
-    Flight::render('layouts/menu', ['base_url' => Flight::get('flight.base_url'), 'section_contact' => true], 'menu');
+    Flight::render('layouts/menu', ['section_contact' => true], 'menu');
     Flight::render('layouts/layout', []);
   }
 
   public static function thanks() {
     Flight::render('contact_thanks', ['twitter_account' => getenv('TWITTER')], 'yield');
-    Flight::render('layouts/menu', ['base_url' => Flight::get('flight.base_url'), 'section_contact' => true], 'menu');
+    Flight::render('layouts/menu', ['section_contact' => true], 'menu');
     Flight::render('layouts/layout', []);
   }
 

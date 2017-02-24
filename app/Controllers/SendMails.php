@@ -27,6 +27,8 @@ class SendMails {
     $mail = new PHPMailer;
 
     /*
+    $mail->IsSendmail();
+
     // SMTP
     $mail->isSMTP();
     $mail->Host = 'host.com';
