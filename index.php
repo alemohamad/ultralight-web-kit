@@ -13,7 +13,7 @@ new Database();
 WingCommander::init();
 Flight::view()->setTemplatePath("./app/Views");
 
-Flight::set('flight.base_url', getenv('BASE_URL'));
+Flight::set('flight.base_url', getBaseFolder());
 
 include_once('app/globals.php');
 include_once('app/routes.php');
