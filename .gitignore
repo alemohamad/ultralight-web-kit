@@ -9,3 +9,4 @@ composer.phar
 Thumbs.db
 .env
 database.sqlite
+*.zip

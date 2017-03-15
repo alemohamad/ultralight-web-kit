@@ -152,6 +152,18 @@ De hecho, si realizan desarrollo front-end de otra forma, lo mejor es eliminar l
 
 Una herramienta que también pueden usar es [Prepros](https://prepros.io), aunque hay muchas otras opciones para estas tareas. 😁
 
+## Backup del proyecto
+
+Para hacer nuestra vida más cómoda, escribí un script de Bash para que exporte los archivos que tenemos que entregar al cliente (tanto entregar a su equipo de IT o subir nosotros al FTP).
+
+Lo que tenemos que hacer es ir al root del proyecto, y escribir el siguiente comando:
+
+```
+$ ./backup-project.sh
+```
+
+El mismo script nos va a decir cual es el nombre del archivo zip generado, para poder disponer del backup del proyecto para entregar.
+
 ## Pasos para contribuir con el proyecto
 
 1. Hacé un fork del repo.

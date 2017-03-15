@@ -150,6 +150,18 @@ In fact, if you do front-end development in another way, it's best to delete the
 
 One tool you can also use is [Prepros](https://prepros.io), although there are many other options for these tasks. 😁
 
+## Project Backup
+
+To make our life more comfortable, I wrote a Bash script to export the files that we have to deliver to the client (either deliver to their IT team or upload them ourselves to an FTP).
+
+What we have to do is go to the root of the project, and write the following command:
+
+```
+$ ./backup-project.sh
+```
+
+The same script will tell us what the name of the generated zip file is, in order to have the backup to deliver.
+
 ## Steps to contribute to the project
 
 1. Fork this repo.
