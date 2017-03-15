@@ -33,10 +33,10 @@ DESTINY="$ORIGIN/$ZIP"
 
   # COPY FOLDERS
   cp -r $ORIGIN/app $DESTINY/app
-  if [ -d $DESTINY/assets ]; then
+  if [ -d $ORIGIN/assets ]; then
     cp -r $ORIGIN/assets $DESTINY/assets
   fi
-  if [ -d $DESTINY/vendor ]; then
+  if [ -d $ORIGIN/vendor ]; then
     cp -r $ORIGIN/vendor $DESTINY/vendor
   fi
 

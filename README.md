@@ -75,6 +75,9 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 ├── vendor
 │   ├── composer
 │   └── ...
+├── .env.example
+├── .htaccess
+├── backup-project.sh
 ├── composer.json
 ├── composer.lock
 ├── composer.phar
@@ -84,7 +87,8 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 ├── README.en.md
 ├── README.md
 ├── robots.txt
-└── sitemap.xml
+├── sitemap.xml
+└── web.config
 ```
 
 ### ¿Qué archivos NO hay que subir al servidor FTP?
@@ -94,6 +98,7 @@ Cuando tenemos un proyecto como este y queremos subirlo al servidor (nuestro o d
 ```
 .env.example
 .gitignore
+backup-project.sh
 composer.json
 composer.lock
 composer.phar

@@ -73,6 +73,9 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ├── vendor
 │   ├── composer
 │   └── ...
+├── .env.example
+├── .htaccess
+├── backup-project.sh
 ├── composer.json
 ├── composer.lock
 ├── composer.phar
@@ -82,7 +85,8 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ├── README.en.md
 ├── README.md
 ├── robots.txt
-└── sitemap.xml
+├── sitemap.xml
+└── web.config
 ```
 
 ### What files we DO NOT have to upload to the FTP server?
@@ -92,6 +96,7 @@ When we have a project like this, and we want to upload it to a server (ours or 
 ```
 .env.example
 .gitignore
+backup-project.sh
 composer.json
 composer.lock
 composer.phar
