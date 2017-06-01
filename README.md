@@ -25,9 +25,14 @@ Espero que esta configuración les sirva para poder armar una estructura simple,
 Este proyecto está pensado para funcionar principalmente en un servidor **Apache** con **PHP 5.4** o mayor, pero se pueden hacer algunos ajustes de configuración para que funcione en **Nginx**.
 
 1. Instalamos [Composer](https://getcomposer.org/download/):  
-`$ curl -s https://getcomposer.org/installer | php`  
+```
+$ curl -s https://getcomposer.org/installer | php
+```
+
 2. Creamos un nuevo proyecto de **Ultralight Web Kit**:  
-`$ php composer.phar create-project alemohamad/ultralight-web-kit path/to/install`
+```
+$ php composer.phar create-project alemohamad/ultralight-web-kit path/to/install
+```
 
 Composer va a crear el proyecto en el directorio `path/to/install`. Si no pasamos este parámetro, se va a crear en la carpeta donde estemos posicionados.
 

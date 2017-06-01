@@ -24,30 +24,14 @@ class SendMails {
       Flight::redirect('/contacto');
     }
 
-    $mail = new PHPMailer;
-
-    /*
-    $mail->IsSendmail();
-
-    // SMTP
-    $mail->isSMTP();
-    $mail->Host = 'host.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'user@server.com';
-    $mail->Password = 'password';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 25;
-    // $mail->SMTPDebug = 1;
-    */
+    $mail = SendMails::phpMailerBase();
 
     // $mail->setFrom('email', 'name');
     $mail->addAddress(getenv('CONTACT_EMAIL'), getenv('CONTACT_NAME'));
     $mail->Subject = 'Subject';
 
     $mail->IsHTML(true);
-    $mail->Body = "<h1>Email from website</h1>"
-                . "<p><b>Name:</b> {$data['name']}</p>"
-                . "<p><b>Message:</b> {$data['message']}</p>";
+    $mail->Body = SendMails::getEmailTemplate('mail', $data);
 
     if (!$mail->send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
@@ -55,11 +39,44 @@ class SendMails {
     else {
       // Message sent!
       if (getenv('DB_STATUS') != 'disabled') {
+        // store in DB
         Message::create(['name' => $data['name'], 'message' => $data['message']]);
       }
 
       Flight::redirect('/contacto/gracias');
     }
+  }
+
+  public static function getEmailTemplate($email_file, $data) {
+    ob_start();
+    Flight::render("emails/{$email_file}", $data);
+    return ob_get_clean();
+  }
+
+  public static function phpMailerBase() {
+    $phpMailer = new PHPMailer;
+    return $phpMailer;
+  }
+
+  public static function phpMailerWithSMTP() {
+    $phpMailer = new PHPMailer;
+    $phpMailer->isSMTP();
+    $phpMailer->Host = 'localhost';
+    $phpMailer->Username = 'user@server.com';
+    $phpMailer->Password = 'password';
+    $phpMailer->Port = 25;
+    $phpMailer->SMTPAuth = true;
+    $phpMailer->SMTPSecure = 'tls';
+    // $phpMailer->SMTPDebug = 3;
+    $phpMailer->CharSet = 'UTF-8';
+    return $phpMailer;
+  }
+
+  public static function phpMailerWithSendmail() {
+    $phpMailer = new PHPMailer;
+    $phpMailer->IsSendmail();
+    $phpMailer->CharSet = 'UTF-8';
+    return $phpMailer;
   }
 
 }
