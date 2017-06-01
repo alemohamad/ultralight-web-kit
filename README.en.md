@@ -22,12 +22,12 @@ I hope that this configuration will be helpful to build a simple structure, but 
 
 This project is intended to work primarily on an **Apache** server with **PHP 5.4** or higher, but some configuration settings can be made to work on **Nginx**.
 
-1. Install [Composer](https://getcomposer.org/download/):  
+* Install [Composer](https://getcomposer.org/download/):  
 ```
 $ curl -s https://getcomposer.org/installer | php
 ```
 
-2. We create a new **Ultralight Web Kit** project:  
+* We create a new **Ultralight Web Kit** project:  
 ```
 $ php composer.phar create-project alemohamad/ultralight-web-kit path/to/install
 ```
