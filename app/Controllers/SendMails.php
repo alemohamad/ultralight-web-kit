@@ -31,7 +31,7 @@ class SendMails {
     $mail->Subject = 'Subject';
 
     $mail->IsHTML(true);
-    $mail->Body = SendMails::getEmailTemplate('mail', $data);
+    $mail->Body = SendMails::getEmailTemplate('mail.twig', $data);
 
     if (!$mail->send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
@@ -49,7 +49,7 @@ class SendMails {
 
   public static function getEmailTemplate($email_file, $data) {
     ob_start();
-    Flight::render("emails/{$email_file}", $data);
+    Flight::view()->display("emails/{$email_file}", $data);
     return ob_get_clean();
   }
 

@@ -2,7 +2,7 @@
 
 ![Ultralight Web Kit](http://i.imgur.com/jODgJwc.png)
 
-Ultralight Web Kit a simple project written in PHP, based on the **Flight** microframework, using several libraries, such as **Mustache** or **Eloquent ORM**. This project is prepared to work on any web server that has PHP 5.4 or greater.
+Ultralight Web Kit a simple project written in PHP, based on the **Flight** microframework, using several libraries, such as **Twig**, **Eloquent ORM** or **Phinx**. This project is prepared to work on any web server that has PHP 5.4 or greater.
 
 [![Total Downloads](https://img.shields.io/packagist/dt/alemohamad/ultralight-web-kit.svg?style=flat-square)](https://packagist.org/packages/alemohamad/ultralight-web-kit)
 [![Latest Stable Version](https://img.shields.io/packagist/v/alemohamad/ultralight-web-kit.svg?style=flat-square)](https://packagist.org/packages/alemohamad/ultralight-web-kit)
@@ -16,7 +16,7 @@ Don't get me wrong, I love the usage of big frameworks to build a web app, but t
 
 This was until I came across the microframework concept and found [Flight](http://flightphp.com). It was love at first sight. ♥️
 
-I hope that this configuration will be helpful to build a simple structure, but providing the complexity necessary to make it a neat project.
+I hope that this configuration will be helpful to build a simple structure, but providing the complexity necessary to make it a successful project.
 
 ## Installation with Composer
 
@@ -53,6 +53,13 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ```
 .
 ├── app
+│   ├── Config
+│   │   ├── migrations
+│   │   │   └── ...
+│   │   ├── config.php
+│   │   ├── Database.php
+│   │   ├── globals.php
+│   │   └── twig.php
 │   ├── Controllers
 │   │   ├── Contacto.php
 │   │   ├── Errors.php
@@ -60,19 +67,20 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 │   │   ├── Home.php
 │   │   └── SendMails.php
 │   ├── Models
-│   │   ├── Database.php
 │   │   └── Message.php
 │   ├── Views
+│   │   ├── emails
+│   │   │   └── mail.twig
 │   │   ├── errors
-│   │   │   ├── 404.html
-│   │   │   └── 500.html
+│   │   │   ├── 404.twig
+│   │   │   └── 500.twig
 │   │   ├── layouts
-│   │   │   ├── layout.html
-│   │   │   └── menu.html
-│   │   ├── contact_thanks.html
-│   │   ├── contact.html
-│   │   ├── hello.html
-│   │   └── home.html
+│   │   │   ├── layout.twig
+│   │   │   └── menu.twig
+│   │   ├── contact_thanks.twig
+│   │   ├── contact.twig
+│   │   ├── hello.twig
+│   │   └── home.twig
 │   ├── helpers.php
 │   └── routes.php
 ├── vendor
@@ -87,6 +95,7 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ├── humans.txt
 ├── index.php
 ├── LICENSE
+├── phinx.php
 ├── README.en.md
 ├── README.md
 ├── robots.txt
@@ -106,6 +115,7 @@ composer.json
 composer.lock
 composer.phar
 LICENSE
+phinx.php
 README.en.md
 README.md
 ```
@@ -117,12 +127,14 @@ Perhaps for you it is obvious that these files do not have to be shared, but I t
 All this would not be possible without the following libraries:
 
 * [Flight](https://github.com/mikecao/flight)
-* [WingCommander](https://github.com/xmeltrut/WingCommander)
+* [Twig](https://github.com/twigphp/Twig)
 * [phpdotenv](https://github.com/vlucas/phpdotenv)
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 * [Valitron](https://github.com/vlucas/valitron)
 * [Flash](https://github.com/joelvardy/flash)
+* [PHP-Auth](https://github.com/delight-im/PHP-Auth)
 * [Eloquent ORM](https://github.com/illuminate/database)
+* [Phinx](https://github.com/cakephp/phinx)
 
 ## Bonus track: Front-end Development
 

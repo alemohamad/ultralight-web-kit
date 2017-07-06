@@ -35,12 +35,13 @@
         <div class="masthead clearfix">
           <div class="inner">
             <h3 class="masthead-brand">Ultralight Web Kit</h3>
-            {{{ menu }}}
+            {% include 'layouts/menu.twig' %}
           </div>
         </div>
 
         <div class="inner cover">
-          {{{ yield }}}
+          {% block content %}
+          {% endblock %}
         </div>
 
         <div class="mastfoot">

@@ -1,4 +1,4 @@
-<?php namespace Models;
+<?php namespace Config;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -15,8 +15,6 @@ class Database {
     $capsule->addConnection($this->getConfigDB());
     $capsule->setAsGlobal();
     $capsule->bootEloquent();
-
-    $this->createTableIfDoesntExist();
   }
 
   function getConfigDB() {
@@ -45,17 +43,6 @@ class Database {
         return $sqlite_config;
       default:
         return $mysql_config;
-    }
-  }
-
-  function createTableIfDoesntExist() {
-    if (!Capsule::schema()->hasTable('messages')) {
-      Capsule::schema()->create('messages', function ($table) {
-        $table->increments('id');
-        $table->string('name');
-        $table->text('message');
-        $table->timestamps();
-      });
     }
   }
 

@@ -2,7 +2,7 @@
 
 ![Ultralight Web Kit](http://i.imgur.com/jODgJwc.png)
 
-Ultralight Web Kit un proyecto simple escrito en PHP, basado en el microframework **Flight**, utilizando varias librerías, como **Mustache** o **Eloquent ORM**. Este proyecto está preparado para funcionar en cualquier servidor web que posea **PHP 5.4** o mayor.
+Ultralight Web Kit un proyecto simple escrito en PHP, basado en el microframework **Flight**, utilizando varias librerías, como **Twig**, **Eloquent ORM** o **Phinx**. Este proyecto está preparado para funcionar en cualquier servidor web que posea **PHP 5.4** o mayor.
 
 [![Total Downloads](https://img.shields.io/packagist/dt/alemohamad/ultralight-web-kit.svg?style=flat-square)](https://packagist.org/packages/alemohamad/ultralight-web-kit)
 [![Latest Stable Version](https://img.shields.io/packagist/v/alemohamad/ultralight-web-kit.svg?style=flat-square)](https://packagist.org/packages/alemohamad/ultralight-web-kit)
@@ -18,7 +18,7 @@ No me malinterpreten, me encantan los frameworks grandes para armar una web app,
 
 Esto fue hasta que me crucé con el concepto de microframework y encontré [Flight](http://flightphp.com). Fue amor a primera vista. ♥️
 
-Espero que esta configuración les sirva para poder armar una estructura simple, pero aportando la complejidad necesaria para que sea un proyecto necesario.
+Espero que esta configuración les sirva para poder armar una estructura simple, pero aportando la complejidad necesaria para que sea un proyecto exitoso.
 
 ## Instalación con Composer
 
@@ -55,6 +55,13 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 ```
 .
 ├── app
+│   ├── Config
+│   │   ├── migrations
+│   │   │   └── ...
+│   │   ├── config.php
+│   │   ├── Database.php
+│   │   ├── globals.php
+│   │   └── twig.php
 │   ├── Controllers
 │   │   ├── Contacto.php
 │   │   ├── Errors.php
@@ -62,19 +69,20 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 │   │   ├── Home.php
 │   │   └── SendMails.php
 │   ├── Models
-│   │   ├── Database.php
 │   │   └── Message.php
 │   ├── Views
+│   │   ├── emails
+│   │   │   └── mail.twig
 │   │   ├── errors
-│   │   │   ├── 404.html
-│   │   │   └── 500.html
+│   │   │   ├── 404.twig
+│   │   │   └── 500.twig
 │   │   ├── layouts
-│   │   │   ├── layout.html
-│   │   │   └── menu.html
-│   │   ├── contact_thanks.html
-│   │   ├── contact.html
-│   │   ├── hello.html
-│   │   └── home.html
+│   │   │   ├── layout.twig
+│   │   │   └── menu.twig
+│   │   ├── contact_thanks.twig
+│   │   ├── contact.twig
+│   │   ├── hello.twig
+│   │   └── home.twig
 │   ├── helpers.php
 │   └── routes.php
 ├── vendor
@@ -89,6 +97,7 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 ├── humans.txt
 ├── index.php
 ├── LICENSE
+├── phinx.php
 ├── README.en.md
 ├── README.md
 ├── robots.txt
@@ -108,6 +117,7 @@ composer.json
 composer.lock
 composer.phar
 LICENSE
+phinx.php
 README.en.md
 README.md
 ```
@@ -119,12 +129,14 @@ Capaz para vos es obvio que estos archivos no se tienen que compartir, pero me p
 Todo esto no sería posible sin las siguientes librerías:
 
 * [Flight](https://github.com/mikecao/flight)
-* [WingCommander](https://github.com/xmeltrut/WingCommander)
+* [Twig](https://github.com/twigphp/Twig)
 * [phpdotenv](https://github.com/vlucas/phpdotenv)
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 * [Valitron](https://github.com/vlucas/valitron)
 * [Flash](https://github.com/joelvardy/flash)
+* [PHP-Auth](https://github.com/delight-im/PHP-Auth)
 * [Eloquent ORM](https://github.com/illuminate/database)
+* [Phinx](https://github.com/cakephp/phinx)
 
 ## Bonus track: Desarrollo Front-end
 
@@ -164,7 +176,7 @@ Una herramienta que también pueden usar es [Prepros](https://prepros.io), aunqu
 
 ## Backup del proyecto
 
-Para hacer nuestra vida más cómoda, escribí un script de Bash para que exporte los archivos que tenemos que entregar al cliente (tanto entregar a su equipo de IT o subir nosotros al FTP).
+Para hacer nuestra vida más cómoda, yo escribí un script de Bash para que exporte los archivos que tenemos que entregar al cliente (tanto entregar a su equipo de IT o subir nosotros al FTP).
 
 Lo que tenemos que hacer es ir al root del proyecto, y escribir el siguiente comando:
 

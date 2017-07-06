@@ -1,21 +1,11 @@
 <?php
 
-if( !session_id() ) @session_start();
+if ( !session_id() ) @session_start();
 
 require_once 'vendor/autoload.php';
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+include_once('app/Config/config.php');
 
-use Models\Database;
-new Database();
-
-WingCommander::init();
-Flight::view()->setTemplatePath("./app/Views");
-
-Flight::set('flight.base_url', getBaseFolder());
-
-include_once('app/globals.php');
 include_once('app/routes.php');
 
 Flight::start();

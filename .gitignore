@@ -1,3 +1,4 @@
+/app/Config/migrations/*.php
 /assets-dev/.sass-cache
 /assets-dev/bower_components
 /assets-dev/node_modules

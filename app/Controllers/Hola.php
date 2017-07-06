@@ -5,9 +5,12 @@ use Flight;
 class Hola {
 
   public static function hola($name) {
-    Flight::render('hello', ['planet' => $name], 'yield');
-    Flight::render('layouts/menu', ['section_hello' => true], 'menu');
-    Flight::render('layouts/layout', []);
+    $data = [
+      'planet' => $name,
+      'section_hello' => true,
+    ];
+
+    Flight::view()->display('hello.twig', $data);
   }
 
 }
