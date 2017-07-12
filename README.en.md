@@ -53,9 +53,14 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ```
 .
 ├── app
+│   ├── Auth
+│   │   └── Auth.php
 │   ├── Config
 │   │   ├── migrations
 │   │   │   └── ...
+│   │   ├── seeds
+│   │   │   └── ...
+│   │   ├── auth.php
 │   │   ├── config.php
 │   │   ├── Database.php
 │   │   ├── globals.php
@@ -67,7 +72,8 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 │   │   ├── Home.php
 │   │   └── SendMails.php
 │   ├── Models
-│   │   └── Message.php
+│   │   ├── Message.php
+│   │   └── User.php
 │   ├── Views
 │   │   ├── emails
 │   │   │   └── mail.twig
@@ -132,7 +138,6 @@ All this would not be possible without the following libraries:
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 * [Valitron](https://github.com/vlucas/valitron)
 * [Flash](https://github.com/joelvardy/flash)
-* [PHP-Auth](https://github.com/delight-im/PHP-Auth)
 * [Eloquent ORM](https://github.com/illuminate/database)
 * [Phinx](https://github.com/cakephp/phinx)
 
@@ -171,6 +176,45 @@ I want to clarify that this is the way and the tools that I like. You are not re
 In fact, if you do front-end development in another way, it's best to delete the `assets-dev` folder, since in that case it's going to be garbage code.
 
 One tool you can also use is [Prepros](https://prepros.io), although there are many other options for these tasks. 😁
+
+## Authentication
+
+The project has a class called `Auth`, which has logic to be able to perform authentication simply in any project. It is ready to connect to the database, using the `User` model, but it can be modified to another usage.
+
+This class is registered to be used within Flight, so it can be used in this way:
+
+```
+<?php
+...
+
+$auth = Flight::auth()->attempt($username, $password);
+
+if (!$auth) {
+  // username or password are not valid
+}
+
+// user is logged in
+```
+
+And then, we have these other methods:
+
+```
+Flight::auth()->check(); // Indicates whether the user is logged in or not
+Flight::auth()->user(); // Returns the object of the logged in user
+Flight::auth()->logout();
+```
+
+The system is prepared to have global variables in the views that bring the information faster:
+
+```
+{{ auth.user.name }}
+
+{% if auth.check %}
+Session started
+{% else %}
+No session started
+{% endif %}
+```
 
 ## Project Backup
 
