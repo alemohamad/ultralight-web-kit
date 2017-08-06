@@ -123,6 +123,7 @@ backup-project.sh
 composer.json
 composer.lock
 composer.phar
+deploy.php
 LICENSE
 phinx.php
 README.en.md
@@ -222,7 +223,7 @@ No hay una sesión iniciada
 
 ## Backup del proyecto
 
-Para hacer nuestra vida más cómoda, yo escribí un script de Bash para que exporte los archivos que tenemos que entregar al cliente (tanto entregar a su equipo de IT o subir nosotros al FTP).
+Para hacer nuestra vida más cómoda, escribí un script de Bash para que exporte los archivos que tenemos que entregar al cliente (tanto entregar a su equipo de IT o subir nosotros al FTP).
 
 Lo que tenemos que hacer es ir al root del proyecto, y escribir el siguiente comando:
 

@@ -22,7 +22,8 @@
         "vlucas/valitron": "^1.4",
         "joelvardy/flash": "dev-master",
         "illuminate/database": "^4.2",
-        "robmorgan/phinx": "^0.8.1"
+        "robmorgan/phinx": "^0.8.1",
+        "deployer/deployer": "^4.3"
     },
     "prefer-stable" : true,
     "minimum-stability": "dev",

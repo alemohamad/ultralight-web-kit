@@ -121,6 +121,7 @@ backup-project.sh
 composer.json
 composer.lock
 composer.phar
+deploy.php
 LICENSE
 phinx.php
 README.en.md
