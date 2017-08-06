@@ -4,7 +4,6 @@
 /assets-dev/node_modules
 /assets-dev/npm-debug.log
 /vendor
-composer.lock
 composer.phar
 .DS_Store
 Thumbs.db
