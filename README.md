@@ -100,6 +100,7 @@ Ahora pueden usar el link [http://localhost:1234](http://localhost:1234) para ac
 ├── composer.json
 ├── composer.lock
 ├── composer.phar
+├── deploy.php
 ├── humans.txt
 ├── index.php
 ├── LICENSE
@@ -142,6 +143,7 @@ Todo esto no sería posible sin las siguientes librerías:
 * [Flash](https://github.com/joelvardy/flash)
 * [Eloquent ORM](https://github.com/illuminate/database)
 * [Phinx](https://github.com/cakephp/phinx)
+* [Deployer](https://github.com/deployphp/deployer)
 
 ## Bonus track: Desarrollo Front-end
 

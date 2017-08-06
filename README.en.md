@@ -98,6 +98,7 @@ Now you can use the link [http://localhost:1234](http://localhost:1234) to acces
 ├── composer.json
 ├── composer.lock
 ├── composer.phar
+├── deploy.php
 ├── humans.txt
 ├── index.php
 ├── LICENSE
@@ -140,6 +141,7 @@ All this would not be possible without the following libraries:
 * [Flash](https://github.com/joelvardy/flash)
 * [Eloquent ORM](https://github.com/illuminate/database)
 * [Phinx](https://github.com/cakephp/phinx)
+* [Deployer](https://github.com/deployphp/deployer)
 
 ## Bonus track: Front-end Development
 
