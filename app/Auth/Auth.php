@@ -5,10 +5,10 @@ use Models\User;
 class Auth {
 
   public function user() {
-    if (getenv('DB_STATUS') != 'disabled') {
+    if ($this->check()) {
       return User::find($_SESSION['user_id']);
     }
-    return new User();
+    return null;
   }
 
   public function check() {
@@ -16,10 +16,7 @@ class Auth {
   }
 
   public function attempt($username, $password) {
-    $user = null;
-    if (getenv('DB_STATUS') != 'disabled') {
-      $user = User::where('username', '=', $username)->first();
-    }
+    $user = User::where('username', '=', $username)->first();
 
     if (!$user) {
       return false;
