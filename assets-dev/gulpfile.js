@@ -1,47 +1,54 @@
 // Load plugins
-var gulp = require('gulp'),
-sass = require('gulp-ruby-sass'),
+var gulp     = require('gulp'),
+sass         = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-cleanCSS = require('gulp-clean-css'),
-jshint = require('gulp-jshint'),
-uglify = require('gulp-uglify'),
-rename = require('gulp-rename'),
-concat = require('gulp-concat'),
-notify = require('gulp-notify'),
-cache = require('gulp-cache'),
-del = require('del'),
-path = require('path');
+cleanCSS     = require('gulp-clean-css'),
+jshint       = require('gulp-jshint'),
+uglify       = require('gulp-uglify'),
+rename       = require('gulp-rename'),
+concat       = require('gulp-concat'),
+notify       = require('gulp-notify'),
+cache        = require('gulp-cache'),
+del          = require('del'),
+sourcemaps   = require('gulp-sourcemaps'),
+bourbon      = require('bourbon').includePaths,
+path         = require('path');
+
+var paths = {
+  mainScss: ['sass/main.scss'],
+  css: '../assets/css',
+  jsOrigin: ['js/libraries/**/*.js', 'js/code.js'],
+  jsDestination: '../assets/js'
+};
 
 // Styles
 gulp.task('styles', function() {
-  return sass('sass/main.scss', { style: 'expanded' })
+  return gulp.src(paths.mainScss)
+  .pipe(sass({ sourcemaps: true, includePaths: [bourbon] }))
   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-  .pipe(gulp.dest('../assets/css'))
+  .pipe(gulp.dest(paths.css))
   .pipe(rename({suffix: '.min'}))
   .pipe(cleanCSS())
-  .pipe(gulp.dest('../assets/css'))
+  .pipe(gulp.dest(paths.css))
   .pipe(notify({ title: 'Ultralight Web Kit', message: 'Styles task complete', icon: path.join(__dirname, 'ultralight.png') }));
 });
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src([
-    'js/libraries/**/*.js',
-    'js/code.js'
-  ])
+  return gulp.src(paths.jsOrigin)
   //.pipe(jshint('.jshintrc'))
   //.pipe(jshint.reporter('default'))
   .pipe(concat('main.js'))
-  .pipe(gulp.dest('../assets/js'))
+  .pipe(gulp.dest(paths.jsDestination))
   .pipe(rename({suffix: '.min'}))
   .pipe(uglify())
-  .pipe(gulp.dest('../assets/js'))
+  .pipe(gulp.dest(paths.jsDestination))
   .pipe(notify({ title: 'Ultralight Web Kit', message: 'Scripts task complete', icon: path.join(__dirname, 'ultralight.png') }));
 });
 
 // Clean
 gulp.task('clean', function(cb) {
-  del(['../assets/css', '../assets/js'], cb)
+  del([paths.css, paths.jsDestination], cb)
 });
 
 // Default task

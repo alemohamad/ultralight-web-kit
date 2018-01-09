@@ -1,6 +1,6 @@
 /app/Config/migrations/*.php
 /assets-dev/.sass-cache
-/assets-dev/bower_components
+/assets-dev/package-lock.json
 /assets-dev/node_modules
 /assets-dev/npm-debug.log
 /vendor

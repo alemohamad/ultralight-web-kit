@@ -150,22 +150,20 @@ Todo esto no sería posible sin las siguientes librerías:
 
 Este proyecto está pensado para un desarrollo web, y para esto conviene tener en cuenta también el armado del front-end. En mi opinión es muy cómodo usar el lenguaje [Sass](http://sass-lang.com) para armar los estilos. Y también está bueno poder tener los estilos CSS y la lógica de JavaScript en un único archivo (menos llamadas al servidor), y si podemos minimizarlo, mejor.
 
-Para poder conseguir esto, armé una carpeta llamada `assets-dev`, en donde se encuentran paquetes de [Node.js](https://nodejs.org) y un script de [Gulp](http://gulpjs.com) para instalar y utilizar. También hay un script de [Bower](https://bower.io) para instalar librerías de CSS y JS (como ser [Bourbon](http://bourbon.io) y [jQuery](https://jquery.com)). En los archivos de Sass van a encontrar que les dejo una copia de [Reset CSS](http://meyerweb.com/eric/tools/css/reset/) y [Head.JS](http://headjs.com). Pueden removerlos si no quieren usarlos.
+Para poder conseguir esto, armé una carpeta llamada `assets-dev`, en donde se encuentran paquetes de [Node.js](https://nodejs.org) y un script de [Gulp](https://gulpjs.com) para instalar y utilizar. En los archivos de Sass van a encontrar que les dejo una copia de [Reset CSS](https://meyerweb.com/eric/tools/css/reset/) y [Head.JS](http://headjs.com). Pueden removerlos si no quieren usarlos. Además el proyecto viene con una copia de [Bourbon](https://www.bourbon.io) para utilizar, el cual pueden remover en el archivo `main.scss` si no lo van a utilizar.
 
 Para utilizar estos scripts, tenemos que utilizar los siguientes comandos para instalar lo necesario:
 
 ```
 $ npm install -g npm
 $ sudo gem install sass
-$ npm install -g bower
 $ npm install -g gulp-cli
 ```
 
-Para instalar los paquetes necesarios, tenemos que ir a la carpeta `assets-dev` y usar los siguientes comandos:
+Para instalar los paquetes necesarios, tenemos que ir a la carpeta `assets-dev` y usar el siguiente comando:
 
 ```
 $ npm install
-$ bower install
 ```
 
 Luego para trabajar (también en la carpeta `assets-dev`) usamos el comando:

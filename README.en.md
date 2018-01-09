@@ -148,22 +148,20 @@ All this would not be possible without the following libraries:
 
 This project is thought for a web development, and for that it is advisable to take into account also the front-end part. In my opinion it is very comfortable to use the [Sass](http://sass-lang.com) language to generate the styles. And it's also good to be able to have both the CSS styles and the JavaScript logic each in a single file, and if we can minimize it, the better.
 
-To achieve this, I added a folder called `assets-dev`, where you can find [Node.js](https://nodejs.org) packages and a [Gulp](http://gulpjs.com) script to install and use. There is also a [Bower](https://bower.io) script for installing CSS and JS libraries (such as [Bourbon](http://bourbon.io) and [jQuery](https://jquery.com)). In the Sass files you will find that I leave a copy of [Reset CSS](http://meyerweb.com/eric/tools/css/reset/) and [Head.JS](http://headjs.com). You can remove them if you don't want to use them.
+To achieve this, I added a folder called `assets-dev`, where you can find [Node.js](https://nodejs.org) packages and a [Gulp](https://gulpjs.com) script to install and use. In the Sass files you will find that I leave a copy of [Reset CSS](https://meyerweb.com/eric/tools/css/reset/) and [Head.JS](http://headjs.com). You can remove them if you don't want to use them. Also, the project comes with a copy of [Bourbon](https://www.bourbon.io) to use, which you can remove from the `main.scss` file if you won't use it.
 
 To use these scripts, we need to use the following commands to install the necessary stuff:
 
 ```
 $ npm install -g npm
 $ sudo gem install sass
-$ npm install -g bower
 $ npm install -g gulp-cli
 ```
 
-To install the necessary packages, we have to go to the `assets-dev` folder and use the following commands:
+To install the necessary packages, we have to go to the `assets-dev` folder and use the following command:
 
 ```
 $ npm install
-$ bower install
 ```
 
 Then to start working (also in the `assets-dev` folder) we use the command:
