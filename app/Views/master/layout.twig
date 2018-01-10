@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Administrador de Contenidos</title>
+
+    <link href="{{ base_url }}assets/master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ base_url }}assets/master/navbar.css" rel="stylesheet">
+    <link href="{{ base_url }}assets/master/sticky-footer.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ base_url }}master">Ultralight Web Kit</a>
+          </div>
+          {% if auth.check %}
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li {% if activeSection == 'activities' %}class="active"{% endif %}><a href="{{ base_url }}master/messages">Mensajes</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ base_url }}master/logout">Salir</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          {% endif %}
+        </div><!--/.container-fluid -->
+      </nav>
+
+      {% block content %}
+      {% endblock %}
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Ultralight Web Kit</p>
+      </div>
+    </footer>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="{{ base_url }}assets/master/js/bootstrap.min.js"></script>
+
+    {% block script %}
+    {% endblock %}
+  </body>
+</html>

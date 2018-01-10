@@ -1,0 +1,47 @@
+{% extends "master/layout.twig" %}
+
+{% block content %}
+{% if flash_message != '' %}
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {{ flash_message }}
+</div>
+{% endif %}
+
+<a href="{{ base_url }}master/messages/new" class="btn btn-default pull-right" role="button">Crear nuevo mensaje</a>
+
+<h1>Mensajes</h1>
+
+<p class="lead">Listado de mensajes.</p>
+
+<hr>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Mensaje</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for message in messages %}
+    <tr>
+      <th>
+        {% if message.active %}
+        <a href="{{ base_url }}master/messages/{{ message.id }}/toggle" class="btn btn-success btn-xs" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+        {% else %}
+        <a href="{{ base_url }}master/messages/{{ message.id }}/toggle" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+        {% endif %}
+        {{ message.name }}
+      </th>
+      <td>{{ message.message }}</kbd></td>
+      <td>
+        <a href="{{ base_url }}master/messages/{{ message.id }}" class="btn btn-primary btn-xs" role="button">Modificar</a>
+        <a href="{{ base_url }}master/messages/{{ message.id }}/remove" class="btn btn-danger btn-xs" role="button" onclick="return confirm('¿Querés borrar el mensaje {{ message.name }}?')">Borrar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

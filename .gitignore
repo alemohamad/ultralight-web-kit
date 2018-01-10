@@ -1,8 +1,8 @@
-/app/Config/migrations/*.php
 /assets-dev/.sass-cache
 /assets-dev/package-lock.json
 /assets-dev/node_modules
 /assets-dev/npm-debug.log
+/uploads/*
 /vendor
 composer.phar
 .DS_Store

@@ -21,7 +21,8 @@
         "phpmailer/phpmailer": "^5.2",
         "vlucas/valitron": "^1.4",
         "joelvardy/flash": "dev-master",
-        "illuminate/database": "^4.2",
+        "illuminate/database": "^5.2",
+        "intervention/image": "^2.4",
         "robmorgan/phinx": "^0.8.1",
         "deployer/deployer": "^4.3"
     },
